@@ -12,25 +12,24 @@
 import math
 
 
+def cylinder():
+    def circle():
+        square = side + 2 * (math.pi * (r ** 2))
+        return square
+
+    q = input("Get the full area of a cylinder - 1, or just the side area - 2 (1/2)")
+
+    side = 2 * math.pi * r * h
+
+    if q == "1":
+        print(circle())
+
+    elif q == "2":
+        print(side)
+
+
 if __name__ == '__main__':
     h = int(input('Enter height: '))
     r = int(input('Enter radius: '))
-
-    def cylinder():
-
-        def circle():
-            square = side + 2 * (math.pi * (r ** 2))
-            return square
-
-        q = input("Get the full area of a cylinder - 1, or just the side area - 2 (1/2)")
-
-        side = 2 * math.pi * r * h
-
-        if q == "1":
-            print(circle())
-
-        elif q == "2":
-            print(side)
-
 
     cylinder()

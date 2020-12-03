@@ -13,8 +13,6 @@ import json
 
 if __name__ == '__main__':
 
-    trains = []
-
     def add():
         name = input("Название пункта назначения: ")
         num = int(input("Номер поезда: "))
@@ -29,6 +27,7 @@ if __name__ == '__main__':
         trains.append(train)
         if len(trains) > 1:
             trains.sort(key=lambda item: item.get('num', ''))
+
 
     def list():
         line = '+-{}-+-{}-+-{}-+-{}-+'.format(
@@ -60,6 +59,7 @@ if __name__ == '__main__':
 
         print(line)
 
+
     def select():
         parts = command.split(' ', maxsplit=2)
 
@@ -76,12 +76,19 @@ if __name__ == '__main__':
         if count == 0:
             print("Таких поездов нет!")
 
+    def load():
+        parts = command.split(' ', maxsplit=1)
+
+        with open(parts[1], 'r') as f:
+            trains = json.load(f)
+            return trains
 
     def save():
         parts = command.split(' ', maxsplit=1)
 
         with open(parts[1], 'w') as f:
             json.dump(trains, f)
+
 
     def help():
         print("Список команд:\n")
@@ -92,6 +99,9 @@ if __name__ == '__main__':
         print("load <имя файла> - загрузить данные из файла;")
         print("save <имя файла> - сохранить данные в файл;")
         print("exit - завершить работу с программой.")
+
+
+    trains = []
 
     while True:
         command = input(">>> ").lower()
@@ -108,10 +118,7 @@ if __name__ == '__main__':
             select()
 
         elif command.startswith('load '):
-            parts = command.split(' ', maxsplit=1)
-
-            with open(parts[1], 'r') as f:
-                trains = json.load(f)
+            load()
 
         elif command.startswith('save '):
             save()

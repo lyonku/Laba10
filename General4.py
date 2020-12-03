@@ -17,30 +17,29 @@
 # передайте в третью функцию, а возвращенное третьей функцией значение – в четвертую.
 
 
-if __name__ == '__main__':
-
-    def getInput():
-        a = input(': ')
-        return a
+def getInput():
+    a = input(': ')
+    return a
 
 
-    def testInput(a):
-        try:
-            i = int(a)
-            return True
-        except ValueError:
-            return False
-
-
-    def strToInt(a):
+def testInput(a):
+    try:
         i = int(a)
-        return i
+        return True
+    except ValueError:
+        return False
 
 
-    def printInt(i):
-        print(i)
+def strToInt(a):
+    i = int(a)
+    return i
 
 
+def printInt(i):
+    print(i)
+
+
+if __name__ == '__main__':
     s = getInput()
     if testInput(s):
         printInt(strToInt(s))

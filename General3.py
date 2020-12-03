@@ -6,18 +6,16 @@
 # полученное произведение. Вызовите функцию и выведите на экран результат ее работы.
 
 
-if __name__ == '__main__':
+def composition():
+    while True:
+        a = int(input('first number: '))
+        b = int(input('second number: '))
 
-    def composition():
+        if a == 0 or b == 0:
+            break
 
-        while True:
-            a = int(input('first number: '))
-            b = int(input('second number: '))
+        p = a * b
+        print('Composition:', p)
 
-            if a == 0 or b == 0:
-                break
 
-            p = a * b
-            print('Composition:', p)
-
-    composition()
+composition()

@@ -12,21 +12,23 @@
 # negative() предшествовать test() или могут следовать после него? Проверьте вашу гипотезу,
 # поменяв объявления функций местами. Попробуйте объяснить результат.
 
+
+def positive():
+    print('Positive')
+
+
+def negative():
+    print('Negative')
+
+
+def test():
+    if a >= 0:
+        positive()
+    elif a < 0:
+        negative()
+
+
 if __name__ == '__main__':
     a = int(input('Enter an integer: '))
-
-    def positive():
-        print('Positive')
-
-
-    def negative():
-        print('Negative')
-
-
-    def test():
-        if a >= 0:
-            positive()
-        elif a < 0:
-            negative()
 
     test()
