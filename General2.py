@@ -13,15 +13,12 @@ import math
 
 
 def cylinder(h, r, full=True):
-
     def circle(r):
         return math.pi * (r ** 2)
 
     side = 2 * math.pi * r * h
 
-    c = input("side or full?")
-
-    if c == 'full':
+    if full:
         return side + 2 * circle(r)
     else:
         return side
@@ -30,6 +27,6 @@ def cylinder(h, r, full=True):
 if __name__ == '__main__':
     y = int(input('Enter radius: '))
     x = int(input('Enter height: '))
-
-    s = cylinder(x, y)
+    c = input("side or full?")
+    s = cylinder(x, y, full=(c == 'full'))
     print(s)
