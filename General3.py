@@ -8,14 +8,18 @@
 
 def composition():
     while True:
+        p = 1
         a = int(input('first number: '))
         b = int(input('second number: '))
 
         if a == 0 or b == 0:
             break
 
-        p = a * b
-        print('Composition:', p)
+        p *= a
+        p *= b
+        print(p)
 
 
-composition()
+if __name__ == '__main__':
+    prod = composition()
+    print(prod)
